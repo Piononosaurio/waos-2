@@ -1,4 +1,3 @@
-```javascript
 const inicio = document.getElementById("inicio");
 const mensaje = document.getElementById("mensaje");
 
@@ -6,8 +5,12 @@ const abrirBtn = document.getElementById("abrirBtn");
 const volverBtn = document.getElementById("volverBtn");
 
 const petalsContainer = document.getElementById("petals");
+const musica = document.getElementById("musica");
 
 abrirBtn.addEventListener("click", () => {
+    musica.volume = 0.35;
+    musica.play();
+
     inicio.classList.remove("activa");
 
     setTimeout(() => {
@@ -70,4 +73,3 @@ for (let i = 0; i < 8; i++) {
         crearPetalo();
     }, i * 400);
 }
-```
