@@ -1,168 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Para mi Jugadora Favorita</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(120deg, #fcd1f5, #d1ecfc);
-      overflow: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      padding: 20px;
-    }
+    <title>Un pequeño detalle 🌻</title>
 
-    h1 {
-      font-size: 2.5em;
-      color: #ff66b2;
-      text-shadow: 2px 2px #ffffff;
-    }
-
-    .boton, .siguiente {
-      background-color: #ffccff;
-      color: #333;
-      padding: 15px 25px;
-      border: 2px solid #ff99cc;
-      border-radius: 12px;
-      font-size: 1.2em;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-top: 20px;
-    }
-
-    .boton:hover, .siguiente:hover {
-      background-color: #ff99cc;
-      color: white;
-    }
-
-    .mensaje {
-      display: none;
-      font-size: 1.3em;
-      margin-top: 30px;
-      color: #444;
-      background: rgba(255, 255, 255, 0.85);
-      padding: 25px;
-      border-radius: 16px;
-      max-width: 700px;
-    }
-
-    .corazon {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: url('https://i.imgur.com/1XhPZV0.png') no-repeat center;
-      background-size: contain;
-      animation: flotar linear infinite;
-      opacity: 0.7;
-    }
-
-    @keyframes flotar {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(-100vh); opacity: 0; }
-    }
-
-    #toggleMusica {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #ffccff;
-      border: 2px solid #ff99cc;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      font-size: 1.5em;
-      cursor: pointer;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-      display: none;
-    }
-  </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<audio id="musica" loop>
-  <source src="musica.mp3" type="audio/mpeg">
-  Tu navegador no soporta audio HTML5.
-</audio>
+    <!-- Pétalos que aparecen en el fondo -->
+    <div id="petals"></div>
 
-<div class="container">
-  <h1>🎮 Eres mi jugadora favorita 💖</h1>
-  <button class="boton" id="inicioBtn" onclick="mostrarSiguiente()">Haz clic para comenzar</button>
-  <div class="mensaje" id="mensaje"></div>
-  <button class="siguiente" id="siguienteBtn" onclick="mostrarSiguiente()" style="display:none;">Siguiente 💌</button>
-</div>
+    <main class="container">
 
-<!-- Botón para controlar la música -->
-<button id="toggleMusica" title="Pausar música 🎵">⏸️</button>
+        <!-- Pantalla inicial -->
+        <section id="inicio" class="pantalla activa">
 
-<script>
-  const mensajes = [
-    "Desde que apareciste en mi vida, sentí que desbloqueé el nivel más hermoso de todos.",
-    "Qué loco, ¿verdad? Pensar que antes no sabía nada de ti, y un día de la nada, por una casualidad, cuando hablamos, sentimos una química increíble, nunca imaginé que el impacto sería enorme, al nivel de que no me imagino ni quiero un futuro en el que no esté junto a ti.",
-    "Estoy feliz de poder haberte cruzado en este mundo. Me encanta cada parte de ti: tu voz, tu cabello, tu cuerpo, tu carita tan bonita, con o sin maquillaje, tu manera de ser, lo inteligente que eres, quiero poder escucharte, verte, sentirte, abrazarte, tener una familia, que podamos crear muchas memorias nosotros solos, con nuestras mascotas y nuestros hijos",
-    "Quiero hacerte, y te lo hare saber todos los dias como me encantas, lo mucho que te amo, y lo feliz que me haces a mí, por ahora te puedo hacer estos regalos, pero ya veras que van a haber muchas cosas nuevas para ti mi niña porque te mereces más que el cielo",
-    "Realmente te ves increíble, mi niña. Te quiero muchísimo. Me iluminas la vida y haces que mis latidos tengan sentido, haciéndome feliz en cada momento que comparto y pienso en ti.",
-    "Quiero seguir jugando esta aventura de la vida a tu lado 🎮💗"
-  ];
+            <div class="flores-superiores">
+                🌼 🌻 🌼
+            </div>
 
-  let indice = 0;
-  const musica = document.getElementById("musica");
-  const toggleBtn = document.getElementById("toggleMusica");
+            <p class="mini-texto">Tengo un pequeño detalle para ti</p>
 
-  function mostrarSiguiente() {
-    const mensajeDiv = document.getElementById("mensaje");
-    const siguienteBtn = document.getElementById("siguienteBtn");
-    const inicioBtn = document.getElementById("inicioBtn");
+            <h1>
+                Unas flores<br>
+                amarillas 🌻
+            </h1>
 
-    if (indice === 0) {
-      inicioBtn.style.display = "none";
-      musica.play().catch(e => console.log("Error al reproducir música:", e));
-      toggleBtn.style.display = "block";
-    }
+            <p class="descripcion">
+                Porque a veces no hace falta una razón especial
+                para regalar un poquito de alegría.
+            </p>
 
-    mensajeDiv.style.display = "block";
-    mensajeDiv.innerHTML = mensajes[indice];
+            <button id="abrirBtn">
+                Abrir 🌻
+            </button>
 
-    if (indice < mensajes.length - 1) {
-      siguienteBtn.style.display = "inline-block";
-      indice++;
-    } else {
-      siguienteBtn.style.display = "none";
-    }
-  }
+            <div class="flor-decorativa">
+                🌼
+            </div>
 
-  toggleBtn.addEventListener("click", () => {
-    if (musica.paused) {
-      musica.play();
-      toggleBtn.textContent = "⏸️";
-      toggleBtn.title = "Pausar música 🎵";
-    } else {
-      musica.pause();
-      toggleBtn.textContent = "▶️";
-      toggleBtn.title = "Reanudar música 🎵";
-    }
-  });
+        </section>
 
-  // Corazones flotantes
-  function crearCorazon() {
-    const corazon = document.createElement('div');
-    corazon.classList.add('corazon');
-    corazon.style.left = Math.random() * 100 + "vw";
-    corazon.style.animationDuration = (Math.random() * 3 + 2) + "s";
-    document.body.appendChild(corazon);
-    setTimeout(() => corazon.remove(), 5000);
-  }
-  setInterval(crearCorazon, 300);
-</script>
+
+        <!-- Pantalla del mensaje -->
+        <section id="mensaje" class="pantalla">
+
+            <div class="ramo">
+                <span>🌻</span>
+                <span>🌼</span>
+                <span>🌻</span>
+                <span>🌼</span>
+                <span>🌻</span>
+            </div>
+
+            <h2>Para ti 🌼</h2>
+
+            <div class="tarjeta">
+
+                <p>
+                    Espero que tengas un día bonito :)
+                </p>
+
+                <p>
+                    Te dejo unas florecitas amarillas para
+                    sacarte una sonrisa.
+                </p>
+
+                <p>
+                    No hay mucho misterio, solo un pequeño
+                    detalle porque sí. 🌻
+                </p>
+
+            </div>
+
+            <p class="pd">
+                PD: Sí, hice una página entera para unas flores.
+                <br>
+                No preguntes. 
+            </p>
+
+            <button id="volverBtn">
+                Volver a ver las flores 🌼
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
